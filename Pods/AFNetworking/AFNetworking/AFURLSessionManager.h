@@ -22,11 +22,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AFURLResponseSerialization.h"
-#import "AFURLRequestSerialization.h"
-#import "AFSecurityPolicy.h"
+#import "AFURLResponseSerialization.h"<AFURLResponseSerialization.h>
+#import "AFURLRequestSerialization.h""AFURLRequestSerialization.h"///<.h>
+#import "AFSecurityPolicy.h"///<.h>
 #if !TARGET_OS_WATCH
-#import "AFNetworkReachabilityManager.h"
+#import "AFNetworkReachabilityManager.h"///<.h>
 #endif
 
 /**
@@ -230,8 +230,8 @@ NS_ASSUME_NONNULL_BEGIN
  Creates an `NSURLSessionUploadTask` with the specified request for a local file.
 
  @param request The HTTP request for the request.
- @param fileURL A URL to the local file to be uploaded.
- @param progress A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
+ @param fileURL A URL to the local file to uploadProgressBlockded.
+ @param uploadProgressBlock A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
  @param completionHandler A block object to be executed when the task finishes. This block has no return value and takes three arguments: the server response, the response object created by that serializer, and the error that occurred, if any.
 
  @see `attemptsToRecreateUploadTasksForBackgroundSessions`
@@ -257,8 +257,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates an `NSURLSessionUploadTask` with the specified streaming request.
 
- @param request The HTTP request for the request.
- @param progress A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
+ @param request request for the request.
+ @param uploadProgressBlock A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
  @param completionHandler A block object to be executed when the task finishes. This block has no return value and takes three arguments: the server response, the response object created by that serializer, and the error that occurred, if any.
  */
 - (NSURLSessionUploadTask *)uploadTaskWithStreamedRequest:(NSURLRequest *)request
@@ -270,10 +270,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///-----------------------------
 
 /**
- Creates an `NSURLSessionDownloadTask` with the specified request.
-
- @param request The HTTP request for the request.
- @param progress A block object to be executed when the download progress is updated. Note this block is called on the session queue, not the main queue.
+ Creates an `NSURLSessionDownloadTask` with the specified reqdownloadProgressBlock@param request The HTTP request for the reqdownloadProgressBlockparam progress A block object to be executed when the download progress is updated. Note this block is called on the session queue, not the main queue.
  @param destination A block object to be executed in order to determine the destination of the downloaded file. This block takes two arguments, the target path & the server response, and returns the desired file URL of the resulting download. The temporary file used during the download will be automatically deleted after being moved to the returned URL.
  @param completionHandler A block to be executed when a task finishes. This block has no return value and takes three arguments: the server response, the path of the downloaded file, and the error describing the network or parsing error that occurred, if any.
 
@@ -285,10 +282,8 @@ NS_ASSUME_NONNULL_BEGIN
                                     completionHandler:(nullable void (^)(NSURLResponse *response, NSURL * _Nullable filePath, NSError * _Nullable error))completionHandler;
 
 /**
- Creates an `NSURLSessionDownloadTask` with the specified resume data.
-
- @param resumeData The data used to resume downloading.
- @param progress A block object to be executed when the download progress is updated. Note this block is called on the session queue, not the main queue.
+ Creates an `NSURLSessionDownloadTask` with the specified resume ddownloadProgressBlockparam resumeData The data used to resume downloading.
+ @param progressdownloadProgdownloadProgressBlocked when the download progress is updated. Note this block is called on the session queue, not the main queue.
  @param destination A block object to be executed in order to determine the destination of the downloaded file. This block takes two arguments, the target path & the server response, and returns the desired file URL of the resulting download. The temporary file used during the download will be automatically deleted after being moved to the returned URL.
  @param completionHandler A block to be executed when a task finishes. This block has no return value and takes three arguments: the server response, the path of the downloaded file, and the error describing the network or parsing error that occurred, if any.
  */

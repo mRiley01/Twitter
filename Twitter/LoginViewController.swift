@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class LoginViewController: UIViewController {
 
@@ -35,6 +36,7 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }, failure: { (Error) in
             print("Failed to log in")
+            print(Error.localizedDescription)
         })
         
     

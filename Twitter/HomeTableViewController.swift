@@ -2,7 +2,7 @@
 //  HomeTableViewController.swift
 //  Twitter
 //
-//  Created by CSUDH on 3/11/21.
+//  Created by CSUDH on 3/20/21.
 //  Copyright © 2021 Dan. All rights reserved.
 //
 
@@ -18,18 +18,24 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTweet()
+        //self.tableView.rowHeight = UITableView.automaticDimension
+        //self.tableView.estimatedRowHeight = 150
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweet()
     }
     
     
     
-    
     //load API
-    func loadTweet() {
+    @objc func loadTweet() {
         
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParam = ["count": 10]
         
-        TwitterAPICaller.client?.getDictionariesRequest(url: "https://api.twitter.com/1.1/statuses/home_timeline.json", parameters: myParam, success: { (tweets:[NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParam, success: { (tweets:[NSDictionary]) in
             
             self.tweetArray.removeAll()
             
@@ -76,12 +82,17 @@ class HomeTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(data: imageData)
         }
         
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetID = tweetArray[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
+      
         return cell
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweetArray.count

@@ -31,7 +31,7 @@
 #import <CoreServices/CoreServices.h>
 #endif
 
-#import "AFURLSessionManager.h"
+#import "AFURLSessionManager.h"///<.h>
 
 /**
  `AFHTTPSessionManager` is a subclass of `AFURLSessionManager` with convenience methods for making HTTP requests. When a `baseURL` is provided, requests made with the `GET` / `POST` / et al. convenience methods can be made with relative paths.
@@ -197,7 +197,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param URLString The URL string used to create the request URL.
  @param parameters The parameters to be encoded according to the client request serializer.
- @param progress A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
+ uploadProgressrogress A block ouploadProgress be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.
  @param failure A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.
 
@@ -232,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param URLString The URL string used to create the request URL.
  @param parameters The parameters to be encoded according to the client request serializer.
  @param block A block that takes a single argument and appends data to the HTTP body. The block argument is an object adopting the `AFMultipartFormData` protocol.
- @param progress A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
+ uploadProgressrogress A block ouploadProgress be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.
  @param failure A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.
 
